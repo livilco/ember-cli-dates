@@ -9,7 +9,6 @@ import { monthAndDay } from 'ember-cli-dates/helpers/month-and-day';
 import { dateAndTime } from 'ember-cli-dates/helpers/date-and-time';
 
 export var initialize = function(container, app) {
-  console.log(container, app);
   app.TimeFormatHelper = Ember.Helper.helper(timeFormat);
   app.TimeAgoInWordsHelper = Ember.Helper.helper(timeAgoInWords);
   app.DayOfTheWeekHelper = Ember.Helper.helper(dayOfTheWeek);
