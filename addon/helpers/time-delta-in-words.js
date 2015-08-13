@@ -3,8 +3,11 @@ import moment from 'moment';
 import timeLocale from 'ember-cli-dates/utils/time-locale';
 import validArgs from 'ember-cli-dates/utils/valid-args';
 
-function timeDeltaInWords(date, optionalLocale) {
+function timeDeltaInWords(params) {
   validArgs(arguments, 'time-delta-in-words');
+
+  var date = params[0];
+  var optionalLocale = params[1];
 
   if (Ember.isBlank(date)) { return ''; }
 
@@ -15,4 +18,6 @@ function timeDeltaInWords(date, optionalLocale) {
 
 export { timeDeltaInWords };
 
-export default Ember.Handlebars.makeBoundHelper(timeDeltaInWords);
+export default Ember.Helper.extend({
+  compute: timeDeltaInWords
+});

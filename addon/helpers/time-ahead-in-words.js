@@ -3,8 +3,11 @@ import moment from 'moment';
 import timeLocale from 'ember-cli-dates/utils/time-locale';
 import validArgs from 'ember-cli-dates/utils/valid-args';
 
-function timeAheadInWords(date, optionalLocale) {
+function timeAheadInWords(params) {
   validArgs(arguments, 'time-ahead-in-words');
+
+  var date = params[0];
+  var optionalLocale = params[1];
 
   if (Ember.isBlank(date)) { return ''; }
 
@@ -15,4 +18,6 @@ function timeAheadInWords(date, optionalLocale) {
 
 export { timeAheadInWords };
 
-export default Ember.Handlebars.makeBoundHelper(timeAheadInWords);
+export default Ember.Helper.extend({
+  compute: timeAheadInWords
+});

@@ -8,15 +8,16 @@ import { monthAndYear } from 'ember-cli-dates/helpers/month-and-year';
 import { monthAndDay } from 'ember-cli-dates/helpers/month-and-day';
 import { dateAndTime } from 'ember-cli-dates/helpers/date-and-time';
 
-export var initialize = function(/* container, app */) {
-  Ember.Handlebars.helper('time-format', timeFormat);
-  Ember.Handlebars.helper('time-ago-in-words', timeAgoInWords);
-  Ember.Handlebars.helper('day-of-the-week', dayOfTheWeek);
-  Ember.Handlebars.helper('time-ahead-in-words', timeAheadInWords);
-  Ember.Handlebars.helper('time-delta-in-words', timeDeltaInWords);
-  Ember.Handlebars.helper('month-and-year', monthAndYear);
-  Ember.Handlebars.helper('month-and-day', monthAndDay);
-  Ember.Handlebars.helper('date-and-time', dateAndTime);
+export var initialize = function(container, app) {
+  console.log(container, app);
+  app.TimeFormatHelper = Ember.Helper.helper(timeFormat);
+  app.TimeAgoInWordsHelper = Ember.Helper.helper(timeAgoInWords);
+  app.DayOfTheWeekHelper = Ember.Helper.helper(dayOfTheWeek);
+  app.TimeAheadInWordsHelper = Ember.Helper.helper(timeAheadInWords);
+  app.TimeDeltaInWordsHelper = Ember.Helper.helper(timeDeltaInWords);
+  app.MonthAndYearHelper = Ember.Helper.helper(monthAndYear);
+  app.MonthAndDayHelper = Ember.Helper.helper(monthAndDay);
+  app.DateAndTimeHelper = Ember.Helper.helper(dateAndTime);
 };
 
 export default {
